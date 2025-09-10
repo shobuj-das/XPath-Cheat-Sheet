@@ -65,5 +65,6 @@ Covers **basic → advanced locator strategies** with examples and use cases.
 - Helps with **dynamic elements, complex DOMs, and XML parsing**.  
 
 ---
-
+**Download the xpath-advanced-practice.html file and practice**
+---
 📌 Feel free to **star ⭐ this repo** if you find it helpful!
