@@ -1,7 +1,7 @@
 # 🔎 XPath Cheat Sheet for Test Automation
 
 A handy reference for **Selenium, Playwright, Cypress, or any automation tool** that uses XPath.  
-Covers **all locator strategies** with examples and use cases.
+Covers **basic → advanced locator strategies** with examples and use cases.
 
 ---
 
@@ -36,11 +36,33 @@ Covers **all locator strategies** with examples and use cases.
 
 ---
 
+## ⚡ Advanced XPath Locators
+
+| **Advanced Technique** | **Example** | **Use Case / Explanation** |
+|-------------------------|-------------|-----------------------------|
+| **Union (`|`)** | `//input[@type='text'] | //textarea` | Selects multiple types of elements at once. |
+| **Group Conditions** | `//input[@type='text' and (@id='user' or @name='username')]` | Mix `and/or` conditions for flexibility. |
+| **Dynamic Attribute Handling** | `//input[contains(@id, concat('user','name'))]` | Builds attributes dynamically with `concat()`. |
+| **Position Filters** | `//tr[position() < 3]` | Selects the first 2 rows of a table. |
+| **String Functions** | `//a[substring(@href,1,5)='https']` | Finds links starting with `https`. |
+| **Count Function** | `//table[count(.//tr)=5]` | Selects a table having exactly 5 rows. |
+| **Boolean Functions** | `//input[@id and @name]` | Selects elements having both `id` and `name`. |
+| **Contains + Normalize** | `//*[contains(normalize-space(text()),'Login')]` | Matches text ignoring spaces. |
+| **Chained Axes** | `//div[@id='main']/child::ul/child::li[1]/following-sibling::li[2]` | Moves across multiple DOM levels. |
+| **Self Axis** | `//input[@id='username']/self::input` | Refers to the current node itself. |
+| **Namespace Nodes** *(XML testing)* | `//x:book/x:title` | Used for XML with namespaces. |
+| **Wildcard for Attributes** | `//*[@*='submit']` | Selects elements where **any attribute** has value `submit`. |
+| **OR Between Tags** | `//h1 | //h2` | Selects both `<h1>` and `<h2>` headers. |
+| **Deep Descendant** | `//div[@id='container']//input[@type='checkbox']` | Selects all checkboxes under a container (any depth). |
+| **Starts-with + Position** | `(//input[starts-with(@id,'user')])[last()]` | Gets last element with dynamic ID. |
+
+---
+
 ## ✅ Usage
 
-- Covers **all XPath scenarios** in Selenium / Playwright.  
-- Useful for **interviews and practice**.  
-- Helps with **complex DOM navigation**.  
+- Covers **basic → advanced XPath scenarios** in Selenium / Playwright.  
+- Useful for **interviews and real-world automation projects**.  
+- Helps with **dynamic elements, complex DOMs, and XML parsing**.  
 
 ---
 
