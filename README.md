@@ -40,7 +40,7 @@ Covers **basic → advanced locator strategies** with examples and use cases.
 
 | **Advanced Technique** | **Example** | **Use Case / Explanation** |
 |-------------------------|-------------|-----------------------------|
-| **Union (`|`)** | `//input[@type='text'] | //textarea` | Selects multiple types of elements at once. |
+| **Union (`\|`)** | `//input[@type='text'] \| //textarea` | Selects multiple types of elements at once. |
 | **Group Conditions** | `//input[@type='text' and (@id='user' or @name='username')]` | Mix `and/or` conditions for flexibility. |
 | **Dynamic Attribute Handling** | `//input[contains(@id, concat('user','name'))]` | Builds attributes dynamically with `concat()`. |
 | **Position Filters** | `//tr[position() < 3]` | Selects the first 2 rows of a table. |
