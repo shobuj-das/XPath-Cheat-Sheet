@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced XPath Practice Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    .container { border: 1px solid #ccc; background: #fff; padding: 15px; margin-bottom: 25px; border-radius: 8px; }
+    h2 { color: #2c3e50; margin-bottom: 10px; }
+    label { font-weight: bold; }
+    input, button, textarea, select { margin: 6px 0; padding: 6px; display: block; }
+    code { background: #eee; padding: 2px 5px; border-radius: 4px; font-size: 14px; }
+    .locator { font-size: 14px; margin: 5px 0; color: #444; }
+    table { border-collapse: collapse; margin-top: 10px; }
+    table, th, td { border: 1px solid #666; padding: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>🔎 Advanced XPath Practice Playground</h1>
+  <p>Each section contains elements and their <strong>XPath locators</strong> displayed directly on the page.</p>
+
+  <!-- Basic Locators -->
+  <div class="container">
+    <h2>1. Basic Locators</h2>
+
+    <label for="username">Username</label>
+    <input type="text" id="username" name="user" placeholder="Enter Username">
+    <div class="locator">By Attribute: <code>//input[@id='username']</code></div>
+    <div class="locator">Relative XPath: <code>//input</code></div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+    <div class="locator">By Attribute: <code>//input[@name='password']</code></div>
+
+    <button id="loginBtn">   Login   </button>
+    <div class="locator">By Text: <code>//button[text()='Login']</code></div>
+    <div class="locator">Normalize-space: <code>//button[normalize-space(text())='Login']</code></div>
+  </div>
+
+  <!-- Functions -->
+  <div class="container">
+    <h2>2. Using Functions</h2>
+
+    <input type="text" id="user123" placeholder="Dynamic User">
+    <div class="locator">Starts-with: <code>//input[starts-with(@id,'user')]</code></div>
+
+    <input type="text" id="dynamic-field" placeholder="Dynamic Field">
+    <div class="locator">Contains: <code>//input[contains(@id,'dynamic')]</code></div>
+
+    <input type="text" id="first-name" placeholder="First Name">
+    <div class="locator">Ends-with (XPath 2.0): <code>//input[ends-with(@id,'name')]</code></div>
+  </div>
+
+  <!-- Indexing -->
+  <div class="container">
+    <h2>3. Indexing</h2>
+    <button class="btn">Button 1</button>
+    <button class="btn">Button 2</button>
+    <button class="btn">Button 3</button>
+    <div class="locator">First Element: <code>(//button[@class='btn'])[1]</code></div>
+    <div class="locator">Last Element: <code>(//button[@class='btn'])[last()]</code></div>
+    <div class="locator">Second Element: <code>(//button[@class='btn'])[2]</code></div>
+  </div>
+
+  <!-- Axes -->
+  <div class="container">
+    <h2>4. Axes Navigation</h2>
+    <form id="signupForm">
+      <div id="emailBox">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <h3>Form Info</h3>
+      <p id="p1">Paragraph 1</p>
+      <p id="p2">Paragraph 2</p>
+    </form>
+    <div class="locator">Parent: <code>//input[@id='email']/parent::div</code></div>
+    <div class="locator">Ancestor: <code>//input[@id='email']/ancestor::form</code></div>
+    <div class="locator">Following: <code>//label[@for='email']/following::input</code></div>
+    <div class="locator">Preceding: <code>//input[@id='email']/preceding::label</code></div>
+    <div class="locator">Following-sibling: <code>//h3/following-sibling::p</code></div>
+    <div class="locator">Preceding-sibling: <code>//p[@id='p2']/preceding-sibling::p</code></div>
+  </div>
+
+  <!-- Advanced -->
+  <div class="container">
+    <h2>5. Advanced Functions</h2>
+
+    <input type="text" id="address" placeholder="Address">
+    <textarea id="notes">Some notes...</textarea>
+    <div class="locator">Union: <code>//input[@type='text'] | //textarea</code></div>
+
+    <table id="userTable">
+      <tr><th>ID</th><th>Name</th></tr>
+      <tr><td>1</td><td>Alice</td></tr>
+      <tr><td>2</td><td>Bob</td></tr>
+    </table>
+    <div class="locator">Count: <code>//table[count(.//tr)=3]</code></div>
+
+    <input type="text" id="mobile" name="mobile" placeholder="Mobile">
+    <div class="locator">Boolean Attributes: <code>//input[@id and @name]</code></div>
+
+    <button>   Click Me Now   </button>
+    <div class="locator">Contains + Normalize: <code>//*[contains(normalize-space(text()),'Click Me')]</code></div>
+
+    <button id="selfBtn">Self Button</button>
+    <div class="locator">Self: <code>//button[@id='selfBtn']/self::button</code></div>
+
+    <button class="action" id="submitBtn">Submit</button>
+    <div class="locator">Wildcard Attribute: <code>//*[@*='submitBtn']</code></div>
+  </div>
+
+  <!-- Lists -->
+  <div class="container">
+    <h2>6. Lists & Position</h2>
+    <ul id="menu">
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+    <div class="locator">Position Filter: <code>//ul/li[position() &lt; 3]</code></div>
+    <div class="locator">Deep Descendant: <code>//div[@id='menu']//li</code></div>
+  </div>
+
+</body>
+</html>
