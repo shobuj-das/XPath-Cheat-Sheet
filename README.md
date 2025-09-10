@@ -52,7 +52,7 @@ Covers **basic → advanced locator strategies** with examples and use cases.
 | **Self Axis** | `//input[@id='username']/self::input` | Refers to the current node itself. |
 | **Namespace Nodes** *(XML testing)* | `//x:book/x:title` | Used for XML with namespaces. |
 | **Wildcard for Attributes** | `//*[@*='submit']` | Selects elements where **any attribute** has value `submit`. |
-| **OR Between Tags** | `//h1 | //h2` | Selects both `<h1>` and `<h2>` headers. |
+| **OR Between Tags** | `//h1 \| //h2` | Selects both `<h1>` and `<h2>` headers. |
 | **Deep Descendant** | `//div[@id='container']//input[@type='checkbox']` | Selects all checkboxes under a container (any depth). |
 | **Starts-with + Position** | `(//input[starts-with(@id,'user')])[last()]` | Gets last element with dynamic ID. |
 
